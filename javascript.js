@@ -9,18 +9,15 @@ function getComputerChoice(){
 //Math.floor is used to round up to nearest integer, since we have 3 options it is needed//
 
 function checkWinner(playerSelection, computerSelection){
-    if(playerSelection == computerSelection){
-        return "Tie";
-    }
-    else if(
+    if(
         (playerSelection == "rock" && computerSelection == "scissors") ||
         (playerSelection == "scissors" && computerSelection == "paper") ||
         (playerSelection == "paper" && computerSelection == "rock")
     ){
         return "Player";
     }
-    else {
-        return "Computer";
+    else{
+        return "Computer"
     }
  }
 
@@ -29,17 +26,16 @@ function playRound(playerSelection, computerSelection){
     if(result == "Tie"){
         return "It's a tie";
     }
-    else if(result == "Player"){
-        return "You win! ${playerSelection} beats ${computerSelection}"
+    if(result == "Player"){
+        return "You win!"
     }
-    else{
-        (result == "Computer")
-        return "You lose! ${computerSelection} beats ${playerSelection}"
+    if(result == "Computer"){
+        return "You lose!"
     }
 }
 
 function getPlayerChoice(){
-        const choice = prompt("rock paper scissors");
+        const choice = prompt("Rock, paper, or scissors?");
         
         }
 
