@@ -60,17 +60,18 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
     console.log("Welcome!")
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+    for (let i = 0; i < 5; i++) {//
+      const playerSelection = getPlayerChoice();
+     const computerSelection = getComputerChoice();
+       console.log(playRound(playerSelection, computerSelection));
         if(checkWinner(playerSelection,computerSelection) == "Player"){
-            playerScore++;
-        }
+           playerScore++;
+       }
         else if(checkWinner(playerSelection,computerSelection) == "Computer"){
-            computerScore++;
-        }
+           computerScore++;
+       }
     }
+}
     console.log("Game over!")
     if(playerScore > computerScore){
         console.log("Player was the winner")
@@ -81,6 +82,14 @@ function game(){
     else{
         console.log("We have a tie!")
     }
-}
+
 // game function will ask player for choice, return the computer choice, then determine who wins. It will loop for 5 rounds. //
 game()
+
+//Button code below//
+const rockButton = document.querySelector(".rock");
+const paperButton = document.querySelector(".paper");
+const scissorsButton = document.querySelector(".scissors");
+const outcome = document.querySelector("outcome")
+
+rockButton.addEventListener("click", playRound();
