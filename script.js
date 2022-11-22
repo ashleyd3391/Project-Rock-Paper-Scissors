@@ -7,7 +7,8 @@ const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
 let playerScore = 1;
 let computerScore = 1;
- 
+
+
     
 rockBtn.addEventListener("click", () => {
     document.getElementById("playerText")
@@ -17,11 +18,9 @@ rockBtn.addEventListener("click", () => {
         document.getElementById("computerText")
         .innerHTML = "Computer:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
-    .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection)
-    
-    }
-
-)
+    .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
+    gameOver();
+})
 
 paperBtn.addEventListener("click", () => {
     document.getElementById("playerText")
@@ -31,8 +30,8 @@ paperBtn.addEventListener("click", () => {
         document.getElementById("computerText")
         .innerHTML = "Computer:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
-    .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection)
-        
+    .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
+    gameOver();
 })
 
 scissorsBtn.addEventListener("click", () => {
@@ -43,8 +42,8 @@ scissorsBtn.addEventListener("click", () => {
         document.getElementById("computerText")
         .innerHTML = "Computer:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
-    .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection)
-        
+    .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
+    gameOver();
 })
 
 function getComputerChoice(){
@@ -93,18 +92,30 @@ function checkWinner(playerSelection, computerSelection){
    }
 }
 
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i = 5; i++) {
-        if(playerScore > computerScore){
-        console.log("Player was the winner!")
+function resetGame() {
+  document.getElementById("playerScore")
+  .innerHTML = "Player Score: 0"
+  document.getElementById("computerScore")
+  .innerHTML = "Computer Score: 0"
+}
+
+function gameOver(){
+    if (playerScore === 6) {
+        document.getElementById("resultText")
+        .innerHTML = "Result:" + " " + "You won all 5 rounds! Great job! Refresh the page to play again!"
+        rockBtn.setAttribute("disabled", true)
+        paperBtn.setAttribute("disabled", true)
+        scissorsBtn.setAttribute("disabled", true)
+    }    
+    else if (computerScore === 6) {
+            document.getElementById("resultText")
+            .innerHTML = "Result:" + " " + "Computer won all 5 rounds! Better luck next time! Refresh the page to play again!"
+            rockBtn.setAttribute("disabled", true)
+            paperBtn.setAttribute("disabled", true)
+            scissorsBtn.setAttribute("disabled", true)
     }
- 
-    else if(playerScore < computerScore){
-        console.log("Computer was the winner")
-    }
-    else{
-        console.log("We have a tie!")
-    }
-}}
+
+    resetGame();
+
+};
+
