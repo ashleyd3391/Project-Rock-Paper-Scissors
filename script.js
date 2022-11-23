@@ -2,6 +2,7 @@ const options = ["rock", "paper", "scissors"];
 const rockBtn = document.querySelector("#rockButton");
 const paperBtn = document.querySelector("#paperButton");
 const scissorsBtn = document.querySelector("#scissorsButton");
+const buttons = document.querySelectorAll("#button");
 const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
@@ -9,7 +10,7 @@ let playerScore = 1;
 let computerScore = 1;
 
 
-    
+function game(){
 rockBtn.addEventListener("click", () => {
     document.getElementById("playerText")
     .innerHTML = "Player:" + " " + rockBtn.textContent;
@@ -20,6 +21,7 @@ rockBtn.addEventListener("click", () => {
     document.getElementById("resultText")
     .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
     gameOver();
+    
 })
 
 paperBtn.addEventListener("click", () => {
@@ -44,7 +46,9 @@ scissorsBtn.addEventListener("click", () => {
     document.getElementById("resultText")
     .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
     gameOver();
-})
+})}
+
+game();
 
 function getComputerChoice(){
     const choice = options[Math.floor(Math.random() * 3)];
@@ -92,30 +96,57 @@ function checkWinner(playerSelection, computerSelection){
    }
 }
 
-function resetGame() {
-  document.getElementById("playerScore")
-  .innerHTML = "Player Score: 0"
-  document.getElementById("computerScore")
-  .innerHTML = "Computer Score: 0"
+function restartGame(){
+    const playAgainBtn = document.createElement("button");
+        playAgainBtn.innerText = "Play again?";
+        "New Button"
+        document.body.appendChild(playAgainBtn);
+    playAgainBtn.addEventListener("click", () => {
+        document.getElementById("playerScore")
+        .innerHTML = "Player Score: 0"
+        document.getElementById("computerScore")
+    .innerHTML = "Computer Score: 0"
+    document.getElementById("playerText")
+    .innerHTML = "Player: "
+    document.getElementById("computerText")
+    .innerHTML = "Computer: "
+    document.getElementById("resultText")
+    .innerHTML = "Result: "
+    document.getElementById("rockButton").disabled = false;
+    document.getElementById("paperButton").disabled = false;
+    document.getElementById("scissorsButton").disabled = false;
+    playAgainBtn.remove("button");
+    let playerScore = 1;
+    let computerScore = 1;
+    })
 }
 
 function gameOver(){
     if (playerScore === 6) {
         document.getElementById("resultText")
-        .innerHTML = "Result:" + " " + "You won all 5 rounds! Great job! Refresh the page to play again!"
+        .innerHTML = "Result:" + " " + "You won all 5 rounds! Great job!"
         rockBtn.setAttribute("disabled", true)
         paperBtn.setAttribute("disabled", true)
         scissorsBtn.setAttribute("disabled", true)
+        resetScore();
+        restartGame();
+
     }    
     else if (computerScore === 6) {
             document.getElementById("resultText")
-            .innerHTML = "Result:" + " " + "Computer won all 5 rounds! Better luck next time! Refresh the page to play again!"
+            .innerHTML = "Result:" + " " + "Computer won all 5 rounds! Better luck next time!"
             rockBtn.setAttribute("disabled", true)
             paperBtn.setAttribute("disabled", true)
             scissorsBtn.setAttribute("disabled", true)
+            resetScore();
+        restartGame();
     }
 
-    resetGame();
-
 };
+
+function resetScore(){
+    playerScore = 1
+    computerScore = 1
+}
+
 
