@@ -1,0 +1,63 @@
+#container{
+    display: flex;
+    background-color: aqua;
+    padding-bottom: 100px;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-top: 100px;
+    padding: 50px;
+    margin-bottom: 100px;
+    justify-content: flex-start;
+    border-radius: 30px;
+    flex-direction: column;
+    
+}
+
+#introText{
+    display: flex;
+    background-color: rgb(43, 226, 52);
+    width: 600px;
+    font-size: 25px;
+    margin-bottom: -400px;
+    margin-top: 150px;
+    margin-left: 100px;
+
+    
+}
+
+#gameDiv{
+    display: flex;
+    background-color: brown;
+    flex-direction: column;
+    margin-top: 100px;
+    height: 800px;
+    padding-top: 400px;
+}
+
+#titleText{
+    display: flex;
+    background-color: blue;
+    height: 50px;
+    width: 800px;
+    justify-content: center;
+    margin-top: 400px;
+    margin-bottom: -100px;
+}
+
+#btnBox{
+    display: flex;
+    background-color: palevioletred;
+    justify-content: center;
+    justify-content: space-around;
+    width: 500px;
+    margin-left: 150px;
+    margin-top: 100px;
+    margin-bottom: -100px;
+}
+
+#rockButton{
+    display: flex;
+    background-color: yellow;
+    margin-left: 10px;
+}
+
