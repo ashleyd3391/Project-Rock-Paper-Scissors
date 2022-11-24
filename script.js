@@ -13,9 +13,9 @@ let computerScore = 1;
 function game(){
 rockBtn.addEventListener("click", () => {
     document.getElementById("playerText")
-    .innerHTML = "Player:" + " " + rockBtn.textContent;
+    .innerHTML = "Player:" + " " + "rock";
         computerSelection = getComputerChoice(),
-        playerSelection = rockBtn.textContent,
+        playerSelection = "rock"
         document.getElementById("computerText")
         .innerHTML = "Computer:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
@@ -26,9 +26,9 @@ rockBtn.addEventListener("click", () => {
 
 paperBtn.addEventListener("click", () => {
     document.getElementById("playerText")
-    .innerHTML = "Player:" + " " + paperBtn.textContent;
+    .innerHTML = "Player:" + " " + "paper";
         computerSelection = getComputerChoice(),
-        playerSelection = paperBtn.textContent,
+        playerSelection = "paper"
         document.getElementById("computerText")
         .innerHTML = "Computer:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
@@ -38,9 +38,9 @@ paperBtn.addEventListener("click", () => {
 
 scissorsBtn.addEventListener("click", () => {
     document.getElementById("playerText")
-    .innerHTML = "Player:" + " " + scissorsBtn.textContent;
+    .innerHTML = "Player:" + " " + "scissors";
         computerSelection = getComputerChoice(),
-        playerSelection = scissorsBtn.textContent,
+        playerSelection = "scissors",
         document.getElementById("computerText")
         .innerHTML = "Computer:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
