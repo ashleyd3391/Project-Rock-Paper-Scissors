@@ -1,6 +1,6 @@
 #container{
     display: flex;
-    background-color: aqua;
+    background-color: #6f67df;
     padding-bottom: 100px;
     margin-left: 500px;
     margin-right: 500px;
@@ -15,10 +15,10 @@
 
 #introText{
     display: flex;
-    background-color: rgb(43, 226, 52);
-    width: 600px;
+    color: rgb(216, 205, 223);
+    width: 650px;
     font-size: 25px;
-    margin-bottom: -400px;
+    margin-bottom: -380px;
     margin-top: 150px;
     margin-left: 100px;
 
@@ -36,7 +36,7 @@
 
 #titleText{
     display: flex;
-    background-color: blue;
+    color: rgb(227, 200, 245);
     height: 50px;
     width: 800px;
     justify-content: center;
@@ -46,18 +46,63 @@
 
 #btnBox{
     display: flex;
-    background-color: palevioletred;
-    justify-content: center;
-    justify-content: space-around;
-    width: 500px;
-    margin-left: 150px;
+    
+    width: 800px;
+    margin-left: 0px;
+    padding-left: 130px;
     margin-top: 100px;
     margin-bottom: -100px;
 }
 
 #rockButton{
     display: flex;
-    background-color: yellow;
-    margin-left: 10px;
+    margin-right: 50px;
 }
+
+#paperButton{
+    display: flex;
+    margin-right: 50px;
+}
+
+#detailsBox{
+    display: flex;
+   
+    justify-content: center;
+    margin-top: 100px;
+    width: 800px;
+    margin-left: 10px;
+    padding-bottom: -100px;
+    margin-top: -10px;
+}
+
+#cloudDetails, #cloudDetails2, #cloudDetails3, {
+    display: flex;
+    background-color: rgb(165, 88, 88);
+    margin: 10px;
+    width: 200px;
+    padding-top: -300px;
+    padding-bottom: -100px;
+    align-items: center;
+}
+
+#charmDetails, #cordialDetails, #curseDetails{
+    display: flex;
+    color: rgb(156, 118, 182);
+    width: 120px;
+    margin-left: 160px;
+    margin-top: -170px;
+}
+
+#cordialDetails{
+    margin-left: 360px;
+    margin-top: -90px;
+}
+
+#curseDetails{
+    margin-left: 560px;
+    margin-top: -95px;
+}
+
+
+
 
