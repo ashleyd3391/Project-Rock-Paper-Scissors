@@ -1,4 +1,4 @@
-const options = ["rock", "paper", "scissors"];
+const options = ["charm", "cordial", "curse"];
 const rockBtn = document.querySelector("#rockButton");
 const paperBtn = document.querySelector("#paperButton");
 const scissorsBtn = document.querySelector("#scissorsButton");
@@ -9,84 +9,53 @@ const resultText = document.querySelector("#resultText");
 let playerScore = 1;
 let computerScore = 1;
 
-
+window.addEventListener("click", () => {
+    document.getElementById("music").play();
+});
 
 rockBtn.addEventListener("click", rockEvent);
+paperBtn.addEventListener("click", paperEvent);
+scissorsBtn.addEventListener("click", scissorsEvent);
 
-function playAgainEvent(){
-    resetScore();
-    rockBtn.addEventListener("click", rockEvent)
-    document.getElementById("playerScore")
-    .innerHTML = "Player Score: 0"
-    document.getElementById("computerScore")
-    .innerHTML = "Computer Score: 0"
-    document.getElementById("playerText")
-    .innerHTML = "Player: "
-    document.getElementById("computerText")
-    .innerHTML = "Computer: "
-    document.getElementById("resultText")
-    .innerHTML = "Result: "
-    playAgainBtn.remove("button");
-}
+
 
 function rockEvent(){
     document.getElementById("playerText")
-    .innerHTML = "Player:" + " " + "rock";
+    .innerHTML = "Player:" + " " + "charm";
         computerSelection = getComputerChoice(),
-        playerSelection = "rock"
+        playerSelection = "charm"
         document.getElementById("computerText")
-        .innerHTML = "Computer:" + " " + `${computerSelection}`,
+        .innerHTML = "Witch:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
     .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
+    restartGame();
 
-    if (playerScore === 6) {
-        document.getElementById("rockButton").removeEventListener("click", rockEvent);
-        const playAgainBtn = document.createElement("button");
-        playAgainBtn.innerText = "Click here to play again!";
-        playAgainBtn.className = "playAgainBtn";
-        "New Button"
-        document.body.appendChild(playAgainBtn);
-        playAgainBtn.addEventListener("click", playAgainEvent);
-        document.getElementById("resultText")
-        .innerHTML = "Result:" + " " + "You won all 5 rounds! Great job!"
-        
-    }    
-    else if (computerScore === 6) {
-        document.getElementById("rockButton").removeEventListener("click", rockEvent);
-        const playAgainBtn = document.createElement("button");
-        playAgainBtn.innerText = "Click here to play again!";
-        playAgainBtn.className = "playAgainBtn";
-        "New Button"
-        document.body.appendChild(playAgainBtn);
-        playAgainBtn.addEventListener("click", playAgainEvent);
-        document.getElementById("resultText")
-        .innerHTML = "Result:" + " " + "You won all 5 rounds! Great job!"
-    }
-   
+
 }
 
 function paperEvent(){
     document.getElementById("playerText")
-    .innerHTML = "Player:" + " " + "rock";
+    .innerHTML = "Player:" + " " + "cordial";
         computerSelection = getComputerChoice(),
-        playerSelection = "paper"
+        playerSelection = "cordial"
         document.getElementById("computerText")
-        .innerHTML = "Computer:" + " " + `${computerSelection}`,
+        .innerHTML = "Witch:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
     .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
-    gameOver();
+    restartGame();
 }
+
     
 function scissorsEvent(){
     document.getElementById("playerText")
-    .innerHTML = "Player:" + " " + "rock";
+    .innerHTML = "Player:" + " " + "curse";
         computerSelection = getComputerChoice(),
-        playerSelection = "scissors"
+        playerSelection = "curse"
         document.getElementById("computerText")
-        .innerHTML = "Computer:" + " " + `${computerSelection}`,
+        .innerHTML = "Witch:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
     .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
-    gameOver();
+    restartGame();
 }
 
 
@@ -103,9 +72,9 @@ function checkWinner(playerSelection, computerSelection){
         return "Tie";
     }
     else if(
-        (playerSelection == "rock" && computerSelection == "scissors") ||
-        (playerSelection == "scissors" && computerSelection == "paper") ||
-        (playerSelection == "paper" && computerSelection == "rock")
+        (playerSelection == "charm" && computerSelection == "curse") ||
+        (playerSelection == "curse" && computerSelection == "cordial") ||
+        (playerSelection == "cordial" && computerSelection == "charm")
     ){
         return "Player";
     }
@@ -132,19 +101,73 @@ function checkWinner(playerSelection, computerSelection){
     }
    else{
     document.getElementById("computerScore")
-    .innerHTML = "Computer Score:" + " " + `${computerScore}`
+    .innerHTML = "Witch Score:" + " " + `${computerScore}`
     computerScore++
     return `You lose! ${computerSelection} beats ${playerSelection}`
    }
 }
 
 
-function restartGame(){
 
+function newGame(){
+
+            
+            document.getElementById("playerScore")
+            .innerHTML = "Player Score: 0"
+            document.getElementById("computerScore")
+            .innerHTML = "Computer Score: 0"
+            document.getElementById("playerText")
+            .innerHTML = "Player: "
+            document.getElementById("computerText")
+            .innerHTML = "Computer: "
+            document.getElementById("resultText")
+            .innerHTML = "Result: "
+            document.querySelector(".playAgainBtn").style.display = "none";
+            let playerScore = 1;
+            let computerScore = 1;
+            location.reload();
+        
+        }
+
+function restartGame(){
+    if (playerScore === 6) {
+        disableButtons();
+        winner();
         const playAgainBtn = document.createElement("button");
         playAgainBtn.innerText = "Click here to play again!";
         playAgainBtn.className = "playAgainBtn";
         "New Button"
         document.body.appendChild(playAgainBtn);
+        playAgainBtn.addEventListener("click", newGame);
+    
+        
+    }    
+    else if (computerScore === 6) {
+        disableButtons();
+        loser();
+        const playAgainBtn = document.createElement("button");
+        playAgainBtn.innerText = "Click here to play again!";
+        playAgainBtn.className = "playAgainBtn";
+        "New Button"
+        document.body.appendChild(playAgainBtn);
+        playAgainBtn.addEventListener("click", newGame);
+      
+    }
+}
 
+
+function disableButtons(){
+        document.getElementById("rockButton").removeEventListener("click", rockEvent);
+        document.getElementById("paperButton").removeEventListener("click", paperEvent);
+        document.getElementById("scissorsButton").removeEventListener("click", scissorsEvent);
+}
+
+function winner(){
+    document.getElementById("resultText")
+    .innerHTML = "Result:" + " " + "You saved the kingdom! You're their hero and they spoil you with riches. Great job!"
+}
+
+function loser(){
+    document.getElementById("resultText")
+    .innerHTML = "Result:" + " " + "Oh no! The kingdom was destroyed and everyone hates you. Bummer."
 }
