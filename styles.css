@@ -13,7 +13,7 @@ body {
 }
 #container{
     display: flex;
-    width:fit-content;
+    width:max-content;
     background-color: #5f4b8b;
     padding-bottom: 100px;
     margin-left: 500px;
