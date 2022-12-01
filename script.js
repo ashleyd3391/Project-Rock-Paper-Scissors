@@ -10,8 +10,26 @@ let playerScore = 1;
 let computerScore = 1;
 
 
-function game(){
-rockBtn.addEventListener("click", () => {
+
+rockBtn.addEventListener("click", rockEvent);
+
+function playAgainEvent(){
+    resetScore();
+    rockBtn.addEventListener("click", rockEvent)
+    document.getElementById("playerScore")
+    .innerHTML = "Player Score: 0"
+    document.getElementById("computerScore")
+    .innerHTML = "Computer Score: 0"
+    document.getElementById("playerText")
+    .innerHTML = "Player: "
+    document.getElementById("computerText")
+    .innerHTML = "Computer: "
+    document.getElementById("resultText")
+    .innerHTML = "Result: "
+    playAgainBtn.remove("button");
+}
+
+function rockEvent(){
     document.getElementById("playerText")
     .innerHTML = "Player:" + " " + "rock";
         computerSelection = getComputerChoice(),
@@ -20,13 +38,36 @@ rockBtn.addEventListener("click", () => {
         .innerHTML = "Computer:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
     .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
-    gameOver();
-    
-})
 
-paperBtn.addEventListener("click", () => {
+    if (playerScore === 6) {
+        document.getElementById("rockButton").removeEventListener("click", rockEvent);
+        const playAgainBtn = document.createElement("button");
+        playAgainBtn.innerText = "Click here to play again!";
+        playAgainBtn.className = "playAgainBtn";
+        "New Button"
+        document.body.appendChild(playAgainBtn);
+        playAgainBtn.addEventListener("click", playAgainEvent);
+        document.getElementById("resultText")
+        .innerHTML = "Result:" + " " + "You won all 5 rounds! Great job!"
+        
+    }    
+    else if (computerScore === 6) {
+        document.getElementById("rockButton").removeEventListener("click", rockEvent);
+        const playAgainBtn = document.createElement("button");
+        playAgainBtn.innerText = "Click here to play again!";
+        playAgainBtn.className = "playAgainBtn";
+        "New Button"
+        document.body.appendChild(playAgainBtn);
+        playAgainBtn.addEventListener("click", playAgainEvent);
+        document.getElementById("resultText")
+        .innerHTML = "Result:" + " " + "You won all 5 rounds! Great job!"
+    }
+   
+}
+
+function paperEvent(){
     document.getElementById("playerText")
-    .innerHTML = "Player:" + " " + "paper";
+    .innerHTML = "Player:" + " " + "rock";
         computerSelection = getComputerChoice(),
         playerSelection = "paper"
         document.getElementById("computerText")
@@ -34,21 +75,22 @@ paperBtn.addEventListener("click", () => {
     document.getElementById("resultText")
     .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
     gameOver();
-})
-
-scissorsBtn.addEventListener("click", () => {
+}
+    
+function scissorsEvent(){
     document.getElementById("playerText")
-    .innerHTML = "Player:" + " " + "scissors";
+    .innerHTML = "Player:" + " " + "rock";
         computerSelection = getComputerChoice(),
-        playerSelection = "scissors",
+        playerSelection = "scissors"
         document.getElementById("computerText")
         .innerHTML = "Computer:" + " " + `${computerSelection}`,
     document.getElementById("resultText")
     .innerHTML = "Result:" + " " + playRound(playerSelection, computerSelection);
     gameOver();
-})}
+}
 
-game();
+
+
 
 function getComputerChoice(){
     const choice = options[Math.floor(Math.random() * 3)];
@@ -96,57 +138,13 @@ function checkWinner(playerSelection, computerSelection){
    }
 }
 
+
 function restartGame(){
-    const playAgainBtn = document.createElement("button");
-        playAgainBtn.innerText = "Play again?";
+
+        const playAgainBtn = document.createElement("button");
+        playAgainBtn.innerText = "Click here to play again!";
+        playAgainBtn.className = "playAgainBtn";
         "New Button"
         document.body.appendChild(playAgainBtn);
-    playAgainBtn.addEventListener("click", () => {
-        document.getElementById("playerScore")
-        .innerHTML = "Player Score: 0"
-        document.getElementById("computerScore")
-    .innerHTML = "Computer Score: 0"
-    document.getElementById("playerText")
-    .innerHTML = "Player: "
-    document.getElementById("computerText")
-    .innerHTML = "Computer: "
-    document.getElementById("resultText")
-    .innerHTML = "Result: "
-    document.getElementById("rockButton").disabled = false;
-    document.getElementById("paperButton").disabled = false;
-    document.getElementById("scissorsButton").disabled = false;
-    playAgainBtn.remove("button");
-    let playerScore = 1;
-    let computerScore = 1;
-    })
+
 }
-
-function gameOver(){
-    if (playerScore === 6) {
-        document.getElementById("resultText")
-        .innerHTML = "Result:" + " " + "You won all 5 rounds! Great job!"
-        rockBtn.setAttribute("disabled", true)
-        paperBtn.setAttribute("disabled", true)
-        scissorsBtn.setAttribute("disabled", true)
-        resetScore();
-        restartGame();
-
-    }    
-    else if (computerScore === 6) {
-            document.getElementById("resultText")
-            .innerHTML = "Result:" + " " + "Computer won all 5 rounds! Better luck next time!"
-            rockBtn.setAttribute("disabled", true)
-            paperBtn.setAttribute("disabled", true)
-            scissorsBtn.setAttribute("disabled", true)
-            resetScore();
-        restartGame();
-    }
-
-};
-
-function resetScore(){
-    playerScore = 1
-    computerScore = 1
-}
-
-
