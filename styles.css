@@ -72,19 +72,25 @@ body {
     margin-top: 100px;
     margin-bottom: 95px;
     z-index: 1;
+    width:max-content;
 }
 
 #rockButton{
     display: flex;
-
+    width:max-content;
     margin-right: 50px;
 }
 
 #paperButton{
     display: flex;
     margin-right: 50px;
+    width:max-content;
 }
 
+#curseButton{
+    display: flex;
+    width:max-content;
+}
 #detailsBox{
     display: flex;
   
@@ -101,7 +107,7 @@ body {
     margin: 2px;
     width: 200px;
     padding-bottom: -100px;
-    
+    width:max-content;
 }
 
 
@@ -193,4 +199,9 @@ body {
     display: flex;
     background-color: rgb(146, 231, 146);
     color: #2a1361;
+}
+
+#moon, #clouds{
+    display: flex;
+    width:max-content;
 }
