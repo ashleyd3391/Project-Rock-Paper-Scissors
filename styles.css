@@ -1,6 +1,14 @@
+*{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#button{
+    display: flex;
+    background-color: green;
+}
 #container{
     display: flex;
-    background-color: #6f67df;
+    background-color: #5f4b8b;
     padding-bottom: 100px;
     margin-left: 500px;
     margin-right: 500px;
@@ -8,14 +16,17 @@
     padding: 50px;
     margin-bottom: 100px;
     justify-content: flex-start;
-    border-radius: 30px;
+    border-radius: 60px;
     flex-direction: column;
+    height: 1000px;
+    padding-bottom: 200px;
     
 }
 
+
 #introText{
     display: flex;
-    color: rgb(216, 205, 223);
+    color: rgb(210, 173, 219);
     width: 650px;
     font-size: 25px;
     margin-bottom: -380px;
@@ -27,35 +38,39 @@
 
 #gameDiv{
     display: flex;
-    background-color: brown;
+    background-color: rgb(170, 163, 235);
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: -50px;
     height: 800px;
-    padding-top: 400px;
+    padding-top: 450px;
+    border-radius: 60px;
+  
 }
 
 #titleText{
     display: flex;
-    color: rgb(227, 200, 245);
+    color: rgb(170, 163, 235);
     height: 50px;
     width: 800px;
     justify-content: center;
     margin-top: 400px;
     margin-bottom: -100px;
+    font-size: 50px
 }
 
 #btnBox{
     display: flex;
-    
-    width: 800px;
+    width: 670px;
     margin-left: 0px;
     padding-left: 130px;
     margin-top: 100px;
-    margin-bottom: -100px;
+    margin-bottom: 95px;
+    z-index: 1;
 }
 
 #rockButton{
     display: flex;
+
     margin-right: 50px;
 }
 
@@ -66,43 +81,110 @@
 
 #detailsBox{
     display: flex;
-   
+  
     justify-content: center;
     margin-top: 100px;
     width: 800px;
     margin-left: 10px;
     padding-bottom: -100px;
-    margin-top: -10px;
+    margin-top: -200px;
 }
 
-#cloudDetails, #cloudDetails2, #cloudDetails3, {
+#cloudDetails, #cloudDetails2, #cloudDetails3{
     display: flex;
-    background-color: rgb(165, 88, 88);
-    margin: 10px;
+    margin: 2px;
     width: 200px;
-    padding-top: -300px;
     padding-bottom: -100px;
-    align-items: center;
+    
 }
+
 
 #charmDetails, #cordialDetails, #curseDetails{
     display: flex;
-    color: rgb(156, 118, 182);
-    width: 120px;
-    margin-left: 160px;
+
+    color: #7c4881;
+    width: 140px;
+    margin-left: 150px;
     margin-top: -170px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: centers;
+  
 }
 
+
+
 #cordialDetails{
-    margin-left: 360px;
-    margin-top: -90px;
+    margin-left: 355px;
+    margin-top: -95px;
+    font-size: 19px;
 }
 
 #curseDetails{
-    margin-left: 560px;
-    margin-top: -95px;
+    margin-left: 555px;
+    margin-top: -85px;
+    font-size: 19px;
 }
 
+#moon{
+    display: flex;
 
+    margin-left: -120px;
+    margin-top: -200px;
+    margin-bottom: -200px;
+}
 
+#clouds{
+    margin-left: 470px;
+    margin-top: -400px;
+    margin-bottom: -200px;
+}
 
+#playerText, #playerScore{
+    display: flex;
+    width: 300px;
+    margin-left: 50px;
+    color: rgb(85, 37, 129);
+}
+
+#playerText{
+    margin-top: -400px;
+}
+
+#computerText, #computerScore{
+    display: flex;
+    width: 400px;
+    margin-left: 450px;
+    color: rgb(85, 37, 129);
+}
+
+#computerText{
+    margin-top: -145px;
+}
+
+#resultText{
+    display: flex;
+    width: 600px;
+    height: 100px;
+    margin-left: 90px;
+    margin-top: -7px;
+    margin-bottom: -300px;
+    justify-content: center;
+    flex-wrap:nowrap;
+    padding: 15px;
+    align-items: center;
+    color: rgb(85, 37, 129);
+}
+
+.playAgainBtn{
+    margin-left: 800px;
+    height: 100px;
+    width: 300px;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: -380px;
+    display: flex;
+    background-color: rgb(146, 231, 146);
+    color: #2a1361;
+}
